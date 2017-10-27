@@ -9,7 +9,7 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -18,10 +18,15 @@ import { MapsComponent } from './maps/maps.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { UpgradeComponent } from './upgrade/upgrade.component';
 
+
+import { DashboardModule } from './dashboard/dashboard.module';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+   // DashboardComponent,
     UserProfileComponent,
     TableListComponent,
     TypographyComponent,
@@ -32,6 +37,7 @@ import { UpgradeComponent } from './upgrade/upgrade.component';
 
   ],
   imports: [
+    DashboardModule,
     BrowserModule,
     FormsModule,
     HttpModule,

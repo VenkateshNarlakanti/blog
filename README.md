@@ -1,6 +1,6 @@
-# [Material Dashboard Angular - Free Bootstrap Material Design Admin](https://www.creative-tim.com/product/material-dashboard-angular2)[![version][version-badge]][CHANGELOG]
+<!-- # [Material Dashboard Angular - Free Bootstrap Material Design Admin](https://www.creative-tim.com/product/material-dashboard-angular2)[![version][version-badge]][CHANGELOG] -->
 
-![alt text](http://s3.amazonaws.com/creativetim_bucket/products/53/original/opt_md_angular_thumbnail.jpg "Material Dashboard Angular Free")
+<!-- ![alt text](http://s3.amazonaws.com/creativetim_bucket/products/53/original/opt_md_angular_thumbnail.jpg "Material Dashboard Angular Free")
 
 **[Material Dashboard Angular](https://www.creative-tim.com/product/material-dashboard-angular2/)** is a free Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design. We are very excited to introduce our take on the material concepts through an easy to use and beautiful set of components. Material Dashboard was built over the popular Bootstrap framework and it comes with a couple of third-party plugins redesigned to fit in with the rest of the elements.
 
@@ -17,20 +17,20 @@ Special thanks go to:
 [Chartist](https://gionkunz.github.io/chartist-js/) for the wonderful charts.
 We are very excited to share this dashboard with you and we look forward to hearing your feedback!
 
-You can find the Github Repo here.
+You can find the Github Repo here. -->
 
 ## Links:
 
 + [Live Preview](https://www.creative-tim.com/product/material-dashboard-angular2)
-+ [Material Kit - For Front End Development](http://www.creative-tim.com/product/material-kit?ref=github-md-angular)
+<!-- + [Material Kit - For Front End Development](http://www.creative-tim.com/product/material-kit?ref=github-md-angular) -->
 
-## Quick start
+<!-- ## Quick start -->
 
-Quick start options:
+<!-- Quick start options:
 
 - [Download from Github](https://github.com/tiniestory/material-dashboard-angular/archive/master.zip).
 - [Download from Creative Tim](http://www.creative-tim.com/product/material-dashboard-angular2).
-- Clone the repo: `git clone https://github.com/tiniestory/material-dashboard-angular.git`.
+- Clone the repo: `git clone https://github.com/tiniestory/material-dashboard-angular.git`. -->
 
 ## Terminal Commands
 
@@ -50,7 +50,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Within the download you'll find the following directories and files:
 
 ```
-md-free-angular-cli
+blog
 ├── CHANGELOG.md
 ├── LICENSE.md
 ├── README.md
@@ -147,7 +147,7 @@ md-free-angular-cli
 
 ```
 
-## Useful Links
+<!-- ## Useful Links
 
 More products from Creative Tim: <http://www.creative-tim.com/bootstrap-themes>
 
@@ -171,4 +171,4 @@ Instagram: <https://instagram.com/creativetimofficial>
 
 [CHANGELOG]: ./CHANGELOG.md
 
-[version-badge]: https://img.shields.io/badge/version-1.4.1-blue.svg
+[version-badge]: https://img.shields.io/badge/version-1.4.1-blue.svg -->
