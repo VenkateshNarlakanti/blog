@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   geoLocation: any;
   lat: any;
   long: any;
+  toFh: any;
   getGeoString: any;
   form = { city_name: '' };
   constructor(
@@ -26,6 +27,11 @@ export class DashboardComponent implements OnInit {
         this.weatherResponse = response;
         console.log(this.weatherResponse);
       });
+  }
+  public toFahrenheit(value) {
+    const ConNumber = ((value - 273.15)  * 1.8) + 32;
+    const math = Math.round(ConNumber * 100) / 100;
+    return math;
   }
   public getCoordinates() {
     if (navigator.geolocation) {
