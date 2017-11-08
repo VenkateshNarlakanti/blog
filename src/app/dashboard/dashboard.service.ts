@@ -16,6 +16,13 @@ export class DashboardService {
             .map((response: Response) => response.json())
             .do(data => console.log(JSON.stringify(data)));
     }
+    getForeCast(city: any): Observable<any> {
+        const url = this._baseUrl + '/data/2.5/forecast?appid=d0b1ba8ed87fbbc667697a90f4180fa2&q=' + city;
+        console.log(url);
+        return this._http.get(url)
+            .map((response: Response) => response.json())
+            .do(data => console.log(JSON.stringify(data)));
+    }
     getGeoName(lat: any, long: any): Observable<any> {
         console.log(lat);
         console.log(long);

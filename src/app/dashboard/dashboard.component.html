@@ -376,47 +376,54 @@
                 <div class="card">
                     <div class="card-header" data-background-color="orange">
                         <h4 class="title">Current Weather in your city</h4>
-                        <p class="category">Weather in {{weatherResponse?.name}}</p>
+                        <p class="category">Weather in {{weatherResponse?.name}} - {{weatherMain}} </p>
+                        <span class="capitalize">({{weatherDesc}}) </span>
                     </div>
                     <div class="card-content table-responsive">
                         <p> Min Temperature: {{toFahrenheit(weatherResponse?.main.temp_min)}} F
-                        <!-- <table class="table table-hover">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header" data-background-color="orange">
+                        <h4 class="title">5 days forecast</h4>
+                        <p class="category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table table-hover">
                             <thead class="text-warning">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Salary</th>
-                                    <th>Country</th>
+                                    <th>Date</th>
+                                    <th>Temperature</th>
+                                    <th>Min</th>
+                                    <th>Max</th>
+                                    <th>Description </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Dakota Rice</td>
-                                    <td>$36,738</td>
-                                    <td>Niger</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Minerva Hooper</td>
-                                    <td>$23,789</td>
-                                    <td>Curaçao</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sage Rodriguez</td>
-                                    <td>$56,142</td>
-                                    <td>Netherlands</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Philip Chaney</td>
-                                    <td>$38,735</td>
-                                    <td>Korea, South</td>
+                                    <!-- <ng-template ngFor let-response [ngForOf]="foreCastResponse">
+                                        <li>{{response.dt}}</li>
+                                    </ng-template> -->
+                                <tr *ngFor="let response of foreCastResponse">
+                                    <td>{{response.dt}}</td>
+                                    <td>{{toFahrenheit(response.main.temp)}} F</td>
+                                    <td>{{toFahrenheit(response.main.temp_min)}} F</td>
+                                    <td>{{toFahrenheit(response.main.temp_max)}} F</td> 
+                                    <td>{{response.weather[0].main}} ({{response.weather[0].description}})</td>
                                 </tr>
                             </tbody>
-                        </table> -->
+                        </table>
                     </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

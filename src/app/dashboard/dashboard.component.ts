@@ -16,6 +16,10 @@ export class DashboardComponent implements OnInit {
   long: any;
   toFh: any;
   getGeoString: any;
+  weatherDesc: any;
+  weatherMain: any;
+  foreCast: any;
+  foreCastResponse: any;
   form = { city_name: '' };
   constructor(
     private _DashboardService: DashboardService
@@ -25,8 +29,18 @@ export class DashboardComponent implements OnInit {
     this.weather = this._DashboardService.getWeather(this.form.city_name)
       .subscribe((response: any) => {
         this.weatherResponse = response;
-        console.log(this.weatherResponse);
+        this.weatherMain = response.weather[0].main;
+        this.weatherDesc = response.weather[0].description;
+        console.log(this.weatherDesc);
+        this.getForeCast();
       });
+  }
+  public getForeCast() {
+    this.foreCast = this._DashboardService.getForeCast(this.form.city_name)
+    .subscribe((response: any) => {
+      this.foreCastResponse = response.list;
+      console.log(this.foreCastResponse);
+    });
   }
   public toFahrenheit(value) {
     const ConNumber = ((value - 273.15)  * 1.8) + 32;
