@@ -20,11 +20,35 @@ export class DashboardComponent implements OnInit {
   weatherMain: any;
   foreCast: any;
   foreCastResponse: any;
-  form = { city_name: '' };
+  userName: any;
+  news: any;
+  newsSource: any;
+  newsArticles: any;
+  cnnNews: any;
+  cnnSource: any;
+  cnnArticles: any;
+  form = { city_name: '', user_name: '' };
   constructor(
     private _DashboardService: DashboardService
   ) { }
-
+  public saveUserName() {
+    sessionStorage.setItem('user', this.form.user_name);
+    this.userName = sessionStorage.getItem('user');
+  }
+  public getNews() {
+    this.news = this._DashboardService.getNews()
+      .subscribe((response: any) => {
+        this.newsSource = response.source;
+        this.newsArticles = response.articles;
+      });
+  }
+  public getCnnNews() {
+    this.cnnNews = this._DashboardService.getCnnNews()
+    .subscribe((response: any) => {
+      this.cnnSource = response.source;
+      this.cnnArticles = response.articles;
+    });
+  }
   public getWeather() {
     this.weather = this._DashboardService.getWeather(this.form.city_name)
       .subscribe((response: any) => {
@@ -131,6 +155,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
     this.getCoordinates();
+    this.getNews();
+    this.userName = sessionStorage.getItem('user');
     const dataDailySalesChart: any = {
       labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
       series: [

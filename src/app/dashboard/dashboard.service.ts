@@ -32,4 +32,16 @@ export class DashboardService {
             .map((response: Response) => response.json())
             .do(data => console.log(JSON.stringify(data)));
     }
+    getNews(): Observable<any> {
+        const url =  'https://newsapi.org/v1/articles?source=business-insider&sortBy=top&apiKey=10ffc00b364045c68ce33a7c73bfe17b';
+        return this._http.get(url)
+        .map((response: Response) => response.json())
+        .do(data => console.log(JSON.stringify(data)));
+    }
+    getCnnNews(): Observable<any> {
+        const url =  'https://newsapi.org/v1/articles?source=cnn&sortBy=top&apiKey=10ffc00b364045c68ce33a7c73bfe17b';
+        return this._http.get(url)
+        .map((response: Response) => response.json())
+        .do(data => console.log(JSON.stringify(data)));
+    }
 }

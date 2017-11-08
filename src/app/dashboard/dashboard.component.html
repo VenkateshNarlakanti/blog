@@ -1,11 +1,6 @@
 <div class="main-content">
 
     <div class="container-fluid">
-        <form method="POST" action="http://formspree.io/narlakanti.v@husky.neu.edu">
-          <input type="email" name="email" placeholder="Your email">
-          <textarea name="message" placeholder="Your message"></textarea>
-          <button type="submit">Send</button>
-        </form>
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="card card-stats">
@@ -29,6 +24,26 @@
                                 Submit
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-avatar" *ngIf="!userName">
+                        <img class="img" style="height: 230px; width: 33%" src="../assets/img/source.gif" />
+                        <div class="pull-right" style="width: 66%; margin-top:1em; padding: 1em" data-background-color="blue">
+                            Hello! I am your virtual assistant!
+                            <div class="form-group form-black label-floating is-empty text-left">
+                                <label class="control-label"> Please tell me your name</label>
+                                <input class="form-control" type="text" id="username" name="username" [(ngModel)]="form.user_name">
+                            </div>
+                            <button type="submit" (click)="saveUserName()" class="btn btn-success pull-right">
+                                    Submit
+                                </button>
+                        </div>
+                    </div>
+                    <div class="card-content" *ngIf="userName">
+                        <p class="lead"> Hello {{userName}}!! </p>
                     </div>
                 </div>
             </div>
@@ -159,18 +174,18 @@
                     <div class="card-header" data-background-color="purple">
                         <div class="nav-tabs-navigation">
                             <div class="nav-tabs-wrapper">
-                                <span class="nav-tabs-title">City:</span>
+                                <h4 class="nav-tabs-title">News:</h4>
                                 <ul class="nav nav-tabs" data-tabs="tabs">
                                     <li class="active">
-                                        <a href="#profile" data-toggle="tab">
+                                        <a href="#business-insider" data-toggle="tab">
                                                 <i class="material-icons">bug_report</i>
-                                                Bugs
+                                                Business Insider
                                             <div class="ripple-container"></div></a>
                                     </li>
                                     <li class="">
-                                        <a href="#messages" data-toggle="tab">
+                                        <a href="#cnn" data-toggle="tab" (click)="getCnnNews()">
                                                 <i class="material-icons">code</i>
-                                                Website
+                                              CNN
                                             <div class="ripple-container"></div></a>
                                     </li>
                                     <li class="">
@@ -186,19 +201,21 @@
 
                     <div class="card-content">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="profile">
+                            <div class="tab-pane active" id="business-insider">
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td>
+                                        <tr *ngFor="let article of newsArticles">
+                                            <!-- <td>
                                                 <div class="checkbox">
                                                     <label>
                                                             <input type="checkbox" name="optionsCheckboxes" checked>
                                                         </label>
                                                 </div>
-                                            </td>
-                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                            <td class="td-actions text-right">
+                                            </td> -->
+                                            <td><a href="{{article.url}}" target="_blank">{{article.title}}</a></td>
+                                            <td></td>
+                                            <td><img src="{{article.urlToImage}}"></td>
+                                            <!-- <td class="td-actions text-right">
                                                 <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
                                                         <i class="material-icons">edit</i>
                                                     </button>
@@ -262,52 +279,20 @@
                                                         <i class="material-icons">close</i>
                                                     </button>
                                             </td>
+                                        </tr> -->
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-pane" id="messages">
+                            <div class="tab-pane" id="cnn">
                                 <table class="table">
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <div class="checkbox">
-                                                    <label>
-                                                            <input type="checkbox" name="optionsCheckboxes" checked>
-                                                        </label>
-                                                </div>
-                                            </td>
-                                            <td>Flooded: One year later, assessing what was lost and what was found when a ravaging
-                                                rain swept through metro Detroit
-                                            </td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
-                                                        <i class="material-icons">edit</i>
-                                                    </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
-                                            </td>
+                                        <tr *ngFor="let cnn of cnnArticles"> 
+                                            <td><a href="{{cnn.url}}" target="_blank">{{cnn.title}}</a></td>
+                                            <td></td>
+                                            <td><img src="{{cnn.urlToImage}}"></td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <div class="checkbox">
-                                                    <label>
-                                                            <input type="checkbox" name="optionsCheckboxes">
-                                                        </label>
-                                                </div>
-                                            </td>
-                                            <td>Sign contract for "What are conference organizers afraid of?"</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-simple btn-xs">
-                                                        <i class="material-icons">edit</i>
-                                                    </button>
-                                                <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                        <i class="material-icons">close</i>
-                                                    </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                     </tbody>
                                 </table>
                             </div>
                             <div class="tab-pane" id="settings">
@@ -410,14 +395,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <!-- <ng-template ngFor let-response [ngForOf]="foreCastResponse">
+                                <!-- <ng-template ngFor let-response [ngForOf]="foreCastResponse">
                                         <li>{{response.dt}}</li>
                                     </ng-template> -->
                                 <tr *ngFor="let response of foreCastResponse">
                                     <td>{{response.dt}}</td>
                                     <td>{{toFahrenheit(response.main.temp)}} F</td>
                                     <td>{{toFahrenheit(response.main.temp_min)}} F</td>
-                                    <td>{{toFahrenheit(response.main.temp_max)}} F</td> 
+                                    <td>{{toFahrenheit(response.main.temp_max)}} F</td>
                                     <td>{{response.weather[0].main}} ({{response.weather[0].description}})</td>
                                 </tr>
                             </tbody>
